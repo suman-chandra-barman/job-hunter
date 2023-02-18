@@ -4,7 +4,7 @@ import CompanyCard from "./CompanyCard";
 const WorldwideTopItCompanies = () => {
   const [WorldwideTopItCompanies, setWorldwideTopItCompanies] = useState([]);
   useEffect(() => {
-    fetch("fresherJobs.json")
+    fetch("http://localhost:5000/worldwideItCompanies")
       .then((res) => res.json())
       .then((data) => {
         setWorldwideTopItCompanies(data);

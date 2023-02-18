@@ -1,16 +1,24 @@
 import React from "react";
-import { HiCreditCard } from "react-icons/hi";
+import { HiLocationMarker } from "react-icons/hi";
 
-const CompanyCard = () => {
+const CompanyCard = ({ job }) => {
+  const { company, location } = job;
   return (
-    <div className="flex justify-between items-center my-2 border rounded-md px-5 py-3">
-      <h4 className="flex gap-2 items-center mt-2 md:mt-0 md:text-xl">
-        <span>
-          <HiCreditCard />
-        </span>
-        <span>Elien Technology</span>
-      </h4>
-      <button className="btn btn-sm btn-success">View Details</button>
+    <div className="md:flex justify-between items-center my-2 border py-2 px-5 rounded-lg">
+      <div>
+        <h3 className="md:text-2xl text-xl">{company}</h3>
+        <div className="md:flex items-center mt-1 gap-10">
+          <h4 className="flex gap-1 items-center mt-2 md:mt-0">
+            <span>
+              <HiLocationMarker />
+            </span>
+            <span>{location}</span>
+          </h4>
+        </div>
+      </div>
+      <div className=" mt-2 md:mt-0">
+        <button className="btn btn-success">View Details</button>
+      </div>
     </div>
   );
 };

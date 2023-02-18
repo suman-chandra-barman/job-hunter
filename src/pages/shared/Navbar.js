@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOutUser } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOutUser()
+      .then(() => {
+        console.log("User log out successfully");
+      })
+      .catch((error) => console.log(error));
+  };
   const navItems = (
     <>
       <li>
@@ -22,7 +31,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="bg-neutral text-neutral-content md:text-xl">
+    <div className="bg-neutral text-neutral-content md:text-xl py-2">
       <div className="navbar container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -55,10 +64,22 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navItems}</ul>
         </div>
         <div className="navbar-end">
-          <Link to="/sign-in">
-            <button className="btn btn-primary">Login</button>
-          </Link>
-          <button className="btn btn-error text-white">Logout</button>
+          {user?.uid ? (
+            <>
+              <button
+                onClick={() => handleLogOut()}
+                className="btn btn-error text-white"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link to="/sign-in">
+                <button className="btn btn-primary">Login</button>
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </div>

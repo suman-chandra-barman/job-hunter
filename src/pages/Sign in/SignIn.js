@@ -2,6 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SignIn = () => {
+  // form submit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+  };
+
   return (
     <div>
       <div className="bg-gray-50 py-10">
@@ -12,7 +21,7 @@ const SignIn = () => {
             </h3>
           </div>
           <div className="w-full px-6 py-4 mt-6 overflow-hidden bg-white shadow-md sm:max-w-lg sm:rounded-lg">
-            <form>
+            <form onClick={handleSubmit}>
               <div className="mt-4">
                 <label
                   htmlFor="email"
@@ -51,7 +60,7 @@ const SignIn = () => {
               </Link>
               <div className=" text-red-400"></div>
               <div className="flex items-center mt-4">
-                <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-success rounded-md hover:bg-sky-700 focus:outline-none focus:bg-success">
+                <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-success rounded-md hover:bg-green-500 focus:outline-none focus:bg-success">
                   Login
                 </button>
               </div>

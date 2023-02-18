@@ -4,7 +4,7 @@ import JobCard from "./JobCard";
 const TopExperiencedJobs = () => {
   const [topExperiencedJobs, setTopExperiencedJobs] = useState([]);
   useEffect(() => {
-    fetch("fresherJobs.json")
+    fetch("http://localhost:5000/fresherJobs")
       .then((res) => res.json())
       .then((data) => {
         setTopExperiencedJobs(data);

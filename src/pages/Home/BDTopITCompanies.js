@@ -4,7 +4,7 @@ import CompanyCard from "./CompanyCard";
 const BDTopITCompanies = () => {
   const [BDTopITCompanies, setBDTopITCompanies] = useState([]);
   useEffect(() => {
-    fetch("fresherJobs.json")
+    fetch("http://localhost:5000/bdITCompanies")
       .then((res) => res.json())
       .then((data) => {
         setBDTopITCompanies(data);
