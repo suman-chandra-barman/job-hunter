@@ -4,7 +4,9 @@ import CompanyCard from "./CompanyCard";
 const WorldwideTopItCompanies = () => {
   const [WorldwideTopItCompanies, setWorldwideTopItCompanies] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/worldwideItCompanies")
+    fetch(
+      "https://job-hunter-server-suman-chandra-barman.vercel.app/worldwideItCompanies"
+    )
       .then((res) => res.json())
       .then((data) => {
         setWorldwideTopItCompanies(data);

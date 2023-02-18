@@ -4,7 +4,9 @@ import JobCard from "./JobCard";
 const TopFresherJobs = () => {
   const [topFresherJobs, setTopFresherJobs] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/fresherJobs")
+    fetch(
+      "https://job-hunter-server-suman-chandra-barman.vercel.app/fresherJobs"
+    )
       .then((res) => res.json())
       .then((data) => {
         setTopFresherJobs(data);

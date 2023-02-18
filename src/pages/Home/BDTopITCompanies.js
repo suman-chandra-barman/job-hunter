@@ -4,7 +4,9 @@ import CompanyCard from "./CompanyCard";
 const BDTopITCompanies = () => {
   const [BDTopITCompanies, setBDTopITCompanies] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/bdITCompanies")
+    fetch(
+      "https://job-hunter-server-suman-chandra-barman.vercel.app/bdITCompanies"
+    )
       .then((res) => res.json())
       .then((data) => {
         setBDTopITCompanies(data);
